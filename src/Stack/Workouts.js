@@ -13,9 +13,9 @@ export default Workouts
 
 const styles = StyleSheet.create({
     container: {
-      flex: 1,
-      backgroundColor: '#739072',
-      alignItems: 'center',
-      justifyContent: 'center',
+        flex: 1,
+        backgroundColor: '#739072',
+        alignItems: 'center',
+        justifyContent: 'center',
     },
-  });
+});
