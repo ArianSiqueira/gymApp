@@ -7,6 +7,9 @@ const Home = () => {
     return (
         <View style={styles.container}>
             <Text>Home</Text>
+            <Text
+                onPress={() => navigation.navigate("PreWorkouts")}
+            >Go to Workouts Screen</Text>
         </View>
     )
 }

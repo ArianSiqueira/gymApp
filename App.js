@@ -11,7 +11,9 @@ import { createMaterialBottomTabNavigator } from 'react-native-paper/react-navig
 import Exercises from './src/BottomTab/Exercises';
 import Profile from './src/BottomTab/Profile';
 import Home from './src/BottomTab/Home';
+import Logs from './src/BottomTab/Logs'
 import Workouts from './src/Stack/Workouts';
+import PreWorkouts from './src/Stack/PreWorkouts'
 
 const Tab = createMaterialBottomTabNavigator();
 const Stack = createStackNavigator();
@@ -21,40 +23,43 @@ function TabNavigator() {
     <Tab.Navigator
       screenOptions={({ route }) => ({
         tabBarIcon: ({ focused, size }) => {
-            let iconName;
-            if (route.name === 'Perfil') {
-                iconName = focused ? 'person-circle' : 'person-circle-outline';
-            } else if (route.name === 'Exercícios') {
-                iconName = focused ? 'barbell' : 'barbell-outline';
-            } else if (route.name === 'Home') {
-                iconName = focused ? 'home' : 'home-outline';
-            }
-            return <Ionicons name={iconName} size={24} color={'#4F6F52'} />;
+          let iconName;
+          if (route.name === 'Perfil') {
+            iconName = focused ? 'person-circle' : 'person-circle-outline';
+          } else if (route.name === 'Exercícios') {
+            iconName = focused ? 'barbell' : 'barbell-outline';
+          } else if (route.name === 'Home') {
+            iconName = focused ? 'home' : 'home-outline';
+          } else if (route.name === 'Logs') {
+            iconName = focused ? 'calendar' : 'calendar-outline';
+          }
+          return <Ionicons name={iconName} size={24} color={'#4F6F52'} />;
         },
         tabBarActiveTintColor: '#4F6F52',
         tabBarInactiveTintColor: '#86A789',
-    })}
+      })}
     >
-      <Tab.Screen
-        name="Perfil"
-        component={Profile}
-        options={{
-          tabBarLabel: 'Perfil',
-        }}
-      />
 
       <Tab.Screen
         name="Home"
-        component={StackNavigator} />
+        component={StackNavigator}
+      />
+
+      <Tab.Screen
+        name="Perfil"
+        component={Profile}
+      />
+
+      <Tab.Screen
+        name="Logs"
+        component={Logs}
+      />
 
       <Tab.Screen
         name="Exercícios"
-        component={Exercises} 
-        options={{
-          tabBarLabel: 'Exercícios',
-        }}
-        />
-        
+        component={Exercises}
+      />
+
     </Tab.Navigator>
   );
 }
@@ -64,6 +69,7 @@ function StackNavigator() {
     <Stack.Navigator>
       <Stack.Screen name="HomeScreen" component={Home} />
       <Stack.Screen name="Workouts" component={Workouts} />
+      <Stack.Screen name="PreWorkouts" component={PreWorkouts} />
     </Stack.Navigator>
   )
 }
