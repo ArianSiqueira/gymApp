@@ -13,7 +13,7 @@ import Profile from './src/BottomTab/Profile';
 import Home from './src/BottomTab/Home';
 import Logs from './src/BottomTab/Logs'
 import Workouts from './src/Stack/Workouts';
-import PreWorkouts from './src/Stack/PreWorkouts'
+import AddWorkouts from './src/Stack/AddWorkout';
 
 const Tab = createMaterialBottomTabNavigator();
 const Stack = createStackNavigator();
@@ -24,19 +24,35 @@ function TabNavigator() {
       screenOptions={({ route }) => ({
         tabBarIcon: ({ focused, size }) => {
           let iconName;
-          if (route.name === 'Perfil') {
-            iconName = focused ? 'person-circle' : 'person-circle-outline';
-          } else if (route.name === 'Exercícios') {
-            iconName = focused ? 'barbell' : 'barbell-outline';
-          } else if (route.name === 'Home') {
-            iconName = focused ? 'home' : 'home-outline';
-          } else if (route.name === 'Logs') {
-            iconName = focused ? 'calendar' : 'calendar-outline';
+          // if (route.name === 'Perfil') {
+          //   iconName = focused ? 'person-circle' : 'person-circle-outline';
+          // } else if (route.name === 'Exercícios') {
+          //   iconName = focused ? 'barbell' : 'barbell-outline';
+          // } else if (route.name === 'Home') {
+          //   iconName = focused ? 'home' : 'home-outline';
+          // } else if (route.name === 'Logs') {
+          //   iconName = focused ? 'calendar' : 'calendar-outline';
+          // }
+          switch (route.name) {
+            case "Home":
+              iconName = focused ? "home" : "home-outline";
+              break;
+            case "Exercícios":
+              iconName = focused ? "barbell" : "barbell-outline";
+              break;
+            case "Logs":
+              iconName = focused ? "calendar" : "calendar-outline";
+              break;
+            case "Perfil":
+              iconName = focused ? "person-circle" : "person-circle-outline";
+              break;
+            default:
+              break;
           }
-          return <Ionicons name={iconName} size={24} color={'#4F6F52'} />;
+          return <Ionicons name={iconName} size={24} color={'#352F44'} />;
         },
-        tabBarActiveTintColor: '#4F6F52',
-        tabBarInactiveTintColor: '#86A789',
+        tabBarActiveTintColor: '#352F44',
+        tabBarInactiveTintColor: '#B9B4C7',
       })}
     >
 
@@ -60,7 +76,7 @@ function TabNavigator() {
         component={Exercises}
       />
 
-    </Tab.Navigator>
+    </Tab.Navigator >
   );
 }
 
@@ -69,7 +85,7 @@ function StackNavigator() {
     <Stack.Navigator>
       <Stack.Screen name="HomeScreen" component={Home} />
       <Stack.Screen name="Workouts" component={Workouts} />
-      <Stack.Screen name="PreWorkouts" component={PreWorkouts} />
+      <Stack.Screen name="AddWorkouts" component={AddWorkouts} />
     </Stack.Navigator>
   )
 }

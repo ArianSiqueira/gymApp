@@ -8,7 +8,7 @@ const Home = () => {
         <View style={styles.container}>
             <Text>Home</Text>
             <Text
-                onPress={() => navigation.navigate("PreWorkouts")}
+                onPress={() => navigation.navigate("AddWorkouts")}
             >Go to Workouts Screen</Text>
         </View>
     )
@@ -19,7 +19,7 @@ export default Home
 const styles = StyleSheet.create({
     container: {
       flex: 1,
-      backgroundColor: '#fff',
+      backgroundColor: '#FAF0E6',
       alignItems: 'center',
       justifyContent: 'center',
     },
