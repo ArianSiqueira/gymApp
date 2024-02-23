@@ -102,7 +102,6 @@ const styles = StyleSheet.create({
         flex: 1,
         padding: 12,
         backgroundColor: '#FAF0E6',
-        marginTop: StatusBar.currentHeight,
     },
     title: {
         fontSize: 24,

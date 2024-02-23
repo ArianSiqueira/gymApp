@@ -11,28 +11,65 @@ import { createMaterialBottomTabNavigator } from 'react-native-paper/react-navig
 import Exercises from './src/BottomTab/Exercises';
 import Profile from './src/BottomTab/Profile';
 import Home from './src/BottomTab/Home';
-import Logs from './src/BottomTab/Logs'
-import Workouts from './src/Stack/Workouts';
-import AddWorkouts from './src/Stack/AddWorkout';
+import Logs from './src/BottomTab/Logs';
+import Workouts from "./src/ExercisesStack/Workouts";
+
+
+
+const HomeStack = createStackNavigator();
+
+function HomeStackScreen() {
+  return (
+    <HomeStack.Navigator>
+      <HomeStack.Screen name="HomeScreen" component={Home} />
+    </HomeStack.Navigator>
+  )
+}
+
+const ProfileStack = createStackNavigator();
+
+function ProfileStackScreen() {
+  return (
+    <ProfileStack.Navigator>
+      <ProfileStack.Screen
+        name="Perfil"
+        component={Profile}
+        options={{ tabBarLabel: false }} />
+    </ProfileStack.Navigator>
+  )
+}
+
+const LogsStack = createStackNavigator();
+
+function LogsStackScreen() {
+  return (
+    <LogsStack.Navigator>
+      <LogsStack.Screen 
+      name="Estatísticas" 
+      component={Logs} />
+    </LogsStack.Navigator>
+  )
+}
+
+const ExercisesStack = createStackNavigator();
+
+function ExercisesStackScreen() {
+  return (
+    <ExercisesStack.Navigator>
+      <ExercisesStack.Screen name="Exercícios" component={Exercises} />
+      <ExercisesStack.Screen name="Workouts" component={Workouts} />
+    </ExercisesStack.Navigator>
+  )
+}
 
 const Tab = createMaterialBottomTabNavigator();
-const Stack = createStackNavigator();
 
-function TabNavigator() {
+function HomeTabsScreen() {
   return (
     <Tab.Navigator
       screenOptions={({ route }) => ({
-        tabBarIcon: ({ focused, size }) => {
+        tabBarIcon: ({ focused }) => {
           let iconName;
-          // if (route.name === 'Perfil') {
-          //   iconName = focused ? 'person-circle' : 'person-circle-outline';
-          // } else if (route.name === 'Exercícios') {
-          //   iconName = focused ? 'barbell' : 'barbell-outline';
-          // } else if (route.name === 'Home') {
-          //   iconName = focused ? 'home' : 'home-outline';
-          // } else if (route.name === 'Logs') {
-          //   iconName = focused ? 'calendar' : 'calendar-outline';
-          // }
           switch (route.name) {
             case "Home":
               iconName = focused ? "home" : "home-outline";
@@ -58,43 +95,33 @@ function TabNavigator() {
 
       <Tab.Screen
         name="Home"
-        component={StackNavigator}
+        component={HomeStackScreen}
       />
 
       <Tab.Screen
         name="Perfil"
-        component={Profile}
+        component={ProfileStackScreen}
       />
 
       <Tab.Screen
         name="Logs"
-        component={Logs}
+        component={LogsStackScreen}
       />
 
       <Tab.Screen
         name="Exercícios"
-        component={Exercises}
+        component={ExercisesStackScreen}
       />
 
     </Tab.Navigator >
   );
 }
 
-function StackNavigator() {
-  return (
-    <Stack.Navigator>
-      <Stack.Screen name="HomeScreen" component={Home} />
-      <Stack.Screen name="Workouts" component={Workouts} />
-      <Stack.Screen name="AddWorkouts" component={AddWorkouts} />
-    </Stack.Navigator>
-  )
-}
-
 function App() {
   return (
     <SafeAreaProvider>
       <NavigationContainer>
-        <TabNavigator />
+        <HomeTabsScreen />
       </NavigationContainer>
     </SafeAreaProvider>
   )

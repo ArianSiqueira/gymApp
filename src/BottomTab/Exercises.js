@@ -5,11 +5,10 @@ import {
     StatusBar,
     ScrollView,
     TouchableOpacity
-} from 'react-native'
+} from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
-import React from 'react'
-import { useNavigation } from '@react-navigation/native'
-
+import React from 'react';
+import { useNavigation } from '@react-navigation/native';
 
 const Exercises = () => {
     const navigation = useNavigation()
@@ -19,7 +18,7 @@ const Exercises = () => {
                 <Text style={styles.title}>Treinos</Text>
                 <TouchableOpacity
                     style={styles.button}
-                    onPress={() => navigation.navigate("AddWorkouts")}
+                    onPress={() => navigation.navigate("Workouts")}
                 >
                     <Ionicons name="ellipsis-vertical-outline" size={24} color="black" />
                 </TouchableOpacity>
@@ -41,7 +40,6 @@ const styles = StyleSheet.create({
         flex: 1,
         padding: 12,
         backgroundColor: '#FAF0E6',
-        marginTop: StatusBar.currentHeight,
     },
     title: {
         // fontSize: 24,
