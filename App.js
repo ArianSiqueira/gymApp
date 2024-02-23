@@ -1,4 +1,7 @@
-import { View, Text } from "react-native"
+import {
+  View,
+  Text
+} from "react-native"
 
 import 'react-native-gesture-handler';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
@@ -10,19 +13,19 @@ import { createMaterialBottomTabNavigator } from 'react-native-paper/react-navig
 
 import Exercises from './src/BottomTab/Exercises';
 import Profile from './src/BottomTab/Profile';
-import Home from './src/BottomTab/Home';
+import Treinos from './src/BottomTab/Treinos';
 import Logs from './src/BottomTab/Logs';
 import Workouts from "./src/ExercisesStack/Workouts";
 
 
 
-const HomeStack = createStackNavigator();
+const TreinoStack = createStackNavigator();
 
-function HomeStackScreen() {
+function TreinoStackScreen() {
   return (
-    <HomeStack.Navigator>
-      <HomeStack.Screen name="HomeScreen" component={Home} />
-    </HomeStack.Navigator>
+    <TreinoStack.Navigator>
+      <TreinoStack.Screen name="Treinos" component={Treinos} />
+    </TreinoStack.Navigator>
   )
 }
 
@@ -34,7 +37,7 @@ function ProfileStackScreen() {
       <ProfileStack.Screen
         name="Perfil"
         component={Profile}
-        options={{ tabBarLabel: false }} />
+      />
     </ProfileStack.Navigator>
   )
 }
@@ -44,9 +47,10 @@ const LogsStack = createStackNavigator();
 function LogsStackScreen() {
   return (
     <LogsStack.Navigator>
-      <LogsStack.Screen 
-      name="Estatísticas" 
-      component={Logs} />
+      <LogsStack.Screen
+        name="Estatísticas"
+        component={Logs}
+      />
     </LogsStack.Navigator>
   )
 }
@@ -71,13 +75,13 @@ function HomeTabsScreen() {
         tabBarIcon: ({ focused }) => {
           let iconName;
           switch (route.name) {
-            case "Home":
-              iconName = focused ? "home" : "home-outline";
-              break;
-            case "Exercícios":
+            case "Treino":
               iconName = focused ? "barbell" : "barbell-outline";
               break;
-            case "Logs":
+            case "Exercícios":
+              iconName = focused ? "book" : "book-outline";
+              break;
+            case "Histórico":
               iconName = focused ? "calendar" : "calendar-outline";
               break;
             case "Perfil":
@@ -94,8 +98,8 @@ function HomeTabsScreen() {
     >
 
       <Tab.Screen
-        name="Home"
-        component={HomeStackScreen}
+        name="Treino"
+        component={TreinoStackScreen}
       />
 
       <Tab.Screen
@@ -104,7 +108,7 @@ function HomeTabsScreen() {
       />
 
       <Tab.Screen
-        name="Logs"
+        name="Histórico"
         component={LogsStackScreen}
       />
 
