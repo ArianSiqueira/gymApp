@@ -2,7 +2,6 @@ import {
     View,
     Text,
     StyleSheet,
-    StatusBar,
     ScrollView,
     TouchableOpacity
 } from 'react-native';
@@ -23,12 +22,26 @@ const Exercises = () => {
                     <Ionicons name="ellipsis-vertical-outline" size={24} color="black" />
                 </TouchableOpacity>
             </View>
-            <Text
-                style={styles.infosText}
-                onPress={() => navigation.navigate("Workouts")
-                }>
-                Meus treinos
-            </Text>
+            <View style={styles.list}>
+                <Text
+                    style={styles.infosText}
+                    onPress={() => navigation.navigate("Iniciante")
+                    }>
+                    Treino Iniciante
+                </Text>
+                <Text
+                    style={styles.infosText}
+                    onPress={() => navigation.navigate("Intermediário")
+                    }>
+                    Treino Intermediário
+                </Text>
+                <Text
+                    style={styles.infosText}
+                    onPress={() => navigation.navigate("Avançado")
+                    }>
+                    Treino Avançado
+                </Text>
+            </View>
         </ScrollView>
     )
 }
@@ -38,14 +51,15 @@ export default Exercises
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        padding: 12,
+        padding: 8,
         backgroundColor: '#FAF0E6',
     },
+    
     title: {
-        // fontSize: 24,
+        fontSize: 16,
         fontWeight: 'bold',
         color: '#352F44',
-        paddingVertical: 10,
+        marginBottom: 20,
     },
 
     button: {
@@ -53,57 +67,26 @@ const styles = StyleSheet.create({
         justifyContent: 'center'
     },
 
-    subTitle: {
-        marginBottom: 10,
-        color: '#352F44',
-    },
-
-    separator: {
-        borderBottomColor: 'black',
-        borderBottomWidth: 1,
-        marginBottom: 10,
-        width: '100%',
-        alignItems: 'center'
-    },
-
-    separatorList: {
-        width: '100%',
-        borderBottomColor: 'black',
-        borderBottomWidth: 0.2
-    },
-
     info: {
-        padding: 2,
         flexDirection: 'row',
         alignItems: 'space-evenly',
         justifyContent: 'space-between',
-        lineHeight: '10px',
-    },
-
-    infos: {
-        flexDirection: 'row',
-        width: '20%',
-        alignItems: 'center',
-        justifyContent: 'space-between'
     },
 
     infosText: {
         color: '#5C5470',
         backgroundColor: '#B9B4C7',
-        width: '40%',
-        padding: 35,
+        width: '80%',
+        padding: 10,
         borderRadius: 10,
         fontSize: 16,
+        textAlign: 'center',
+        marginBottom: 2,
     },
 
     list: {
-        width: '70%',
-        alignItems: 'flex-end'
+        width: '100%',
+        alignItems: 'center',
+        marginTop: 10
     },
-
-    infoText: {
-        lineHeight: 24,
-        marginLeft: 10,
-        justifyContent: 'flex-end'
-    }
 });

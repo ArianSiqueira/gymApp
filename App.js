@@ -15,9 +15,18 @@ import Exercises from './src/BottomTab/Exercises';
 import Profile from './src/BottomTab/Profile';
 import Treinos from './src/BottomTab/Treinos';
 import Logs from './src/BottomTab/Logs';
-import Workouts from "./src/ExercisesStack/Workouts";
 
+import InicianteA from "./src/ExercisesStack/InicianteA";
+import InicianteB from "./src/ExercisesStack/InicianteB";
+import IntermediárioA from "./src/ExercisesStack/IntermediárioA";
+import IntermediárioB from "./src/ExercisesStack/IntermediárioB";
+import IntermediárioC from "./src/ExercisesStack/IntermediárioC";
+import AvançadoA from "./src/ExercisesStack/AvançadoA";
+import AvançadoB from "./src/ExercisesStack/AvançadoB";
 
+import Iniciante from "./src/ExercisesStack/Iniciante";
+import Intermediário from "./src/ExercisesStack/Intermediário";
+import Avançado from "./src/ExercisesStack/Avançado";
 
 const TreinoStack = createStackNavigator();
 
@@ -60,8 +69,39 @@ const ExercisesStack = createStackNavigator();
 function ExercisesStackScreen() {
   return (
     <ExercisesStack.Navigator>
-      <ExercisesStack.Screen name="Exercícios" component={Exercises} />
-      <ExercisesStack.Screen name="Workouts" component={Workouts} />
+      <ExercisesStack.Screen
+        name="Exercícios"
+        component={Exercises} />
+      <ExercisesStack.Screen
+        name="InicianteA"
+        component={InicianteA} />
+      <ExercisesStack.Screen
+        name="InicianteB"
+        component={InicianteB} />
+      <ExercisesStack.Screen
+        name="IntermediárioA"
+        component={IntermediárioA} />
+      <ExercisesStack.Screen
+        name="IntermediárioB"
+        component={IntermediárioB} />
+      <ExercisesStack.Screen
+        name="IntermediárioC"
+        component={IntermediárioC} />
+      <ExercisesStack.Screen
+        name="AvançadoA"
+        component={AvançadoA} />
+      <ExercisesStack.Screen
+        name="AvançadoB"
+        component={AvançadoB} />
+      <ExercisesStack.Screen
+        name="Iniciante"
+        component={Iniciante} />
+      <ExercisesStack.Screen
+        name="Intermediário"
+        component={Intermediário} />
+      <ExercisesStack.Screen
+        name="Avançado"
+        component={Avançado} />
     </ExercisesStack.Navigator>
   )
 }
