@@ -1,11 +1,14 @@
-import { ScrollView, View, Text, StyleSheet, StatusBar, TextInput, Button } from 'react-native';
+import {
+    View,
+    Text,
+    StyleSheet,
+    TextInput,
+} from 'react-native';
 import React from 'react';
 import { Ionicons } from '@expo/vector-icons';
 import { useState } from 'react';
 
 import { useNavigation } from '@react-navigation/native';
-
-
 
 const Profile = () => {
     const navigation = useNavigation()
@@ -29,8 +32,8 @@ const Profile = () => {
             <View style={styles.info}>
 
                 <View style={styles.infos}>
-                    <Ionicons name={'person-circle'} size={24} color={'#4F6F52'} />
-                    <Text>Nome: </Text>
+                    <Ionicons name={'person-circle'} size={24} color={'#5C5470'} />
+                    <Text style={styles.infosText}>Nome: </Text>
                 </View>
 
                 <View style={styles.list}>
@@ -50,8 +53,8 @@ const Profile = () => {
             <View style={styles.info}>
 
                 <View style={styles.infos}>
-                    <Ionicons name={'man'} size={24} color={'#4F6F52'} />
-                    <Text>Altura: </Text>
+                    <Ionicons name={'man'} size={24} color={'#5C5470'} />
+                    <Text style={styles.infosText}>Altura: </Text>
                 </View>
 
                 <View style={styles.list}>
@@ -71,8 +74,8 @@ const Profile = () => {
             <View style={styles.info}>
 
                 <View style={styles.infos}>
-                    <Ionicons name={'scale'} size={24} color={'#4F6F52'} />
-                    <Text>Peso: </Text>
+                    <Ionicons name={'scale'} size={24} color={'#5C5470'} />
+                    <Text style={styles.infosText}>Peso: </Text>
                 </View>
 
                 <View style={styles.list}>
@@ -95,18 +98,18 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         padding: 12,
-        backgroundColor: '#F7EFE5',
-        marginTop: StatusBar.currentHeight,
+        backgroundColor: '#FAF0E6',
     },
     title: {
         fontSize: 24,
         fontWeight: 'bold',
-        color: 'black',
+        color: '#352F44',
         paddingVertical: 10,
     },
 
     subTitle: {
         marginBottom: 10,
+        color: '#352F44',
     },
 
     separator: {
@@ -114,13 +117,13 @@ const styles = StyleSheet.create({
         borderBottomWidth: 1,
         marginBottom: 10,
         width: '100%',
-        alignItems: 'center',
+        alignItems: 'center'
     },
 
     separatorList: {
         width: '100%',
         borderBottomColor: 'black',
-        borderBottomWidth: 0.2,
+        borderBottomWidth: 0.2
     },
 
     info: {
@@ -147,5 +150,9 @@ const styles = StyleSheet.create({
         lineHeight: 24,
         marginLeft: 10,
         justifyContent: 'flex-end'
+    },
+
+    infosText: {
+        color: '#5C5470',
     }
 });

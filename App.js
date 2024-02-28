@@ -1,4 +1,7 @@
-import { View, Text } from "react-native"
+import {
+  View,
+  Text
+} from "react-native"
 
 import 'react-native-gesture-handler';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
@@ -10,69 +13,170 @@ import { createMaterialBottomTabNavigator } from 'react-native-paper/react-navig
 
 import Exercises from './src/BottomTab/Exercises';
 import Profile from './src/BottomTab/Profile';
-import Home from './src/BottomTab/Home';
-import Workouts from './src/Stack/Workouts';
+import Treinos from './src/BottomTab/Treinos';
+import Logs from './src/BottomTab/Logs';
+
+import InicianteA from "./src/ExercisesStack/InicianteA";
+import InicianteB from "./src/ExercisesStack/InicianteB";
+import IntermediárioA from "./src/ExercisesStack/IntermediárioA";
+import IntermediárioB from "./src/ExercisesStack/IntermediárioB";
+import IntermediárioC from "./src/ExercisesStack/IntermediárioC";
+import AvançadoA from "./src/ExercisesStack/AvançadoA";
+import AvançadoB from "./src/ExercisesStack/AvançadoB";
+import AvançadoC from "./src/ExercisesStack/AvançadoC";
+
+import Iniciante from "./src/ExercisesStack/Iniciante";
+import Intermediário from "./src/ExercisesStack/Intermediário";
+import Avançado from "./src/ExercisesStack/Avançado";
+
+const TreinoStack = createStackNavigator();
+
+function TreinoStackScreen() {
+  return (
+    <TreinoStack.Navigator>
+      <TreinoStack.Screen name="Treinos" component={Treinos} />
+    </TreinoStack.Navigator>
+  )
+}
+
+const ProfileStack = createStackNavigator();
+
+function ProfileStackScreen() {
+  return (
+    <ProfileStack.Navigator>
+      <ProfileStack.Screen
+        name="Perfil"
+        component={Profile}
+      />
+    </ProfileStack.Navigator>
+  )
+}
+
+const LogsStack = createStackNavigator();
+
+function LogsStackScreen() {
+  return (
+    <LogsStack.Navigator>
+      <LogsStack.Screen
+        name="Estatísticas"
+        component={Logs}
+      />
+    </LogsStack.Navigator>
+  )
+}
+
+const ExercisesStack = createStackNavigator();
+
+function ExercisesStackScreen() {
+  return (
+    <ExercisesStack.Navigator
+    screenOptions={{
+      headerShown: true, 
+      headerStyle: {
+        backgroundColor: 'transparent', 
+        elevation: 0, 
+        shadowOpacity: 0,
+        }}}>
+      <ExercisesStack.Screen
+        name="Exercícios"
+        component={Exercises} />
+      <ExercisesStack.Screen
+        name="InicianteA"
+        component={InicianteA} />
+      <ExercisesStack.Screen
+        name="InicianteB"
+        component={InicianteB} />
+      <ExercisesStack.Screen
+        name="IntermediárioA"
+        component={IntermediárioA} />
+      <ExercisesStack.Screen
+        name="IntermediárioB"
+        component={IntermediárioB} />
+      <ExercisesStack.Screen
+        name="IntermediárioC"
+        component={IntermediárioC} />
+      <ExercisesStack.Screen
+        name="AvançadoA"
+        component={AvançadoA} />
+      <ExercisesStack.Screen
+        name="AvançadoB"
+        component={AvançadoB} />
+      <ExercisesStack.Screen
+        name="AvançadoC"
+        component={AvançadoC} />
+      <ExercisesStack.Screen
+        name="Iniciante"
+        component={Iniciante} />
+      <ExercisesStack.Screen
+        name="Intermediário"
+        component={Intermediário} />
+      <ExercisesStack.Screen
+        name="Avançado"
+        component={Avançado} />
+    </ExercisesStack.Navigator>
+  )
+}
 
 const Tab = createMaterialBottomTabNavigator();
-const Stack = createStackNavigator();
 
-function TabNavigator() {
+function HomeTabsScreen() {
   return (
     <Tab.Navigator
       screenOptions={({ route }) => ({
-        tabBarIcon: ({ focused, size }) => {
-            let iconName;
-            if (route.name === 'Perfil') {
-                iconName = focused ? 'person-circle' : 'person-circle-outline';
-            } else if (route.name === 'Exercícios') {
-                iconName = focused ? 'barbell' : 'barbell-outline';
-            } else if (route.name === 'Home') {
-                iconName = focused ? 'home' : 'home-outline';
-            }
-            return <Ionicons name={iconName} size={24} color={'#4F6F52'} />;
+        tabBarIcon: ({ focused }) => {
+          let iconName;
+          switch (route.name) {
+            case "Treino":
+              iconName = focused ? "barbell" : "barbell-outline";
+              break;
+            case "Exercícios":
+              iconName = focused ? "book" : "book-outline";
+              break;
+            case "Histórico":
+              iconName = focused ? "calendar" : "calendar-outline";
+              break;
+            case "Perfil":
+              iconName = focused ? "person-circle" : "person-circle-outline";
+              break;
+            default:
+              break;
+          }
+          return <Ionicons name={iconName} size={24} color={'#352F44'} />;
         },
-        tabBarActiveTintColor: '#4F6F52',
-        tabBarInactiveTintColor: '#86A789',
-    })}
+        tabBarActiveTintColor: '#352F44',
+        tabBarInactiveTintColor: '#B9B4C7',
+      })}
     >
+
       <Tab.Screen
-        name="Perfil"
-        component={Profile}
-        options={{
-          tabBarLabel: 'Perfil',
-        }}
+        name="Treino"
+        component={TreinoStackScreen}
       />
 
       <Tab.Screen
-        name="Home"
-        component={StackNavigator} />
+        name="Perfil"
+        component={ProfileStackScreen}
+      />
+
+      <Tab.Screen
+        name="Histórico"
+        component={LogsStackScreen}
+      />
 
       <Tab.Screen
         name="Exercícios"
-        component={Exercises} 
-        options={{
-          tabBarLabel: 'Exercícios',
-        }}
-        />
-        
-    </Tab.Navigator>
-  );
-}
+        component={ExercisesStackScreen}
+      />
 
-function StackNavigator() {
-  return (
-    <Stack.Navigator>
-      <Stack.Screen name="HomeScreen" component={Home} />
-      <Stack.Screen name="Workouts" component={Workouts} />
-    </Stack.Navigator>
-  )
+    </Tab.Navigator >
+  );
 }
 
 function App() {
   return (
     <SafeAreaProvider>
       <NavigationContainer>
-        <TabNavigator />
+        <HomeTabsScreen />
       </NavigationContainer>
     </SafeAreaProvider>
   )
