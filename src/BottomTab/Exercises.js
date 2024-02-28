@@ -3,25 +3,36 @@ import {
     Text,
     StyleSheet,
     ScrollView,
-    TouchableOpacity
+    TouchableOpacity,
+    StatusBar
 } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
-import React from 'react';
+import React, { useLayoutEffect }  from 'react';
 import { useNavigation } from '@react-navigation/native';
 
 const Exercises = () => {
     const navigation = useNavigation()
-    return (
-        <ScrollView style={styles.container}>
-            <View style={styles.info}>
-                <Text style={styles.title}>Treinos</Text>
+
+    useLayoutEffect(() => {
+        navigation.setOptions({
+            title: 'Treinos',
+            headerRight: () => (
                 <TouchableOpacity
-                    style={styles.button}
-                    onPress={() => navigation.navigate("Workouts")}
+                    style={{ marginRight: 16 }}
+                    onPress={() => {
+                        // Adicione a lógica desejada ao pressionar o botão
+                        console.log('Botão pressionado');
+                    }}
                 >
-                    <Ionicons name="ellipsis-vertical-outline" size={24} color="black" />
+                    <Ionicons name="ellipsis-vertical" size={24} color="black" />
                 </TouchableOpacity>
-            </View>
+            ),
+        });
+    }, [navigation]);
+
+    return (
+        
+        <ScrollView style={styles.container}>
             <View style={styles.list}>
                 <Text
                     style={styles.infosText}
@@ -54,23 +65,10 @@ const styles = StyleSheet.create({
         padding: 8,
         backgroundColor: '#FAF0E6',
     },
-    
-    title: {
-        fontSize: 16,
-        fontWeight: 'bold',
-        color: '#352F44',
-        marginBottom: 20,
-    },
 
     button: {
         alignItems: 'center',
         justifyContent: 'center'
-    },
-
-    info: {
-        flexDirection: 'row',
-        alignItems: 'space-evenly',
-        justifyContent: 'space-between',
     },
 
     infosText: {

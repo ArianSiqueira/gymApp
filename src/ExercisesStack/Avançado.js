@@ -30,6 +30,15 @@ const Avançado = () => {
                 </Text>
             </TouchableOpacity>
 
+            <TouchableOpacity
+                style={styles.infosText}
+                onPress={() => navigation.navigate("AvançadoC")}>
+                <Text
+                    style={styles.infosButton}>
+                    Avançado C
+                </Text>
+            </TouchableOpacity>
+
         </View>
     )
 }

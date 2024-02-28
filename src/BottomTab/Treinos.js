@@ -19,14 +19,15 @@ const Treinos = () => {
     const [customTime, setCustomTime] = useState('');
     const [selectedTime, setSelectedTime] = useState(null);
     const [selectedOption, setSelectedOption] = useState('option1');
+    const [weight, setWeight] = useState('');
+    const [reps, setReps] = useState('');
 
     const optionsLabel = [
         { label: 'Opção 1', value: 'option1' },
         { label: 'Opção 2', value: 'option2' },
         { label: 'Opção 3', value: 'option3' },
-      ];
-    
-    
+    ];
+
 
     const toggleTimer = () => {
         setTimerStart(!timerStart);
@@ -72,6 +73,16 @@ const Treinos = () => {
         { id: '10', label: '1', time: 1000 },
     ];
 
+    const handleOnChangeWeight = (text) => {
+        setWeight(text)
+    };
+    console.log(weight)
+
+    const handleOnChangeReps = (text) => {
+        setReps(text)
+    };
+    console.log(reps)
+
     return (
         <View style={styles.container}>
             <View style={styles.header}>
@@ -87,7 +98,7 @@ const Treinos = () => {
                     onPress={toggleTimer}
                     style={[
                         styles.timerContainer,
-                        timerStart && styles.timerActive, // Adiciona a classe de estilo se o timer está ativo
+                        timerStart && styles.timerActive,
                     ]}>
                     <Timer
                         totalDuration={selectedTime ? selectedTime.time : 60000}
@@ -97,6 +108,7 @@ const Treinos = () => {
                         options={options}
                         handleFinish={() => alert('Acabou o descanso')}
                         getTime={getFormattedTime}
+                        UNSAFE_componentWillReceiveProps={() => { }}
                     />
                 </TouchableOpacity>
 
@@ -138,19 +150,28 @@ const Treinos = () => {
                     <Button title="Fechar" onPress={closeModal} style={styles.buttonClose} />
                 </View>
             </Modal>
-            <View style={styles.weightInput}>
+            <View style={styles.workoutInputs}>
                 <TextInput
                     style={styles.input}
                     placeholder="Repetições"
                     keyboardType="numeric"
+                    value={weight}
+                    onChangeText={handleOnChangeWeight}
                 />
                 <TextInput
                     style={styles.input}
-                    placeholder="Peso"
+                    placeholder="Peso em kg"
                     keyboardType="numeric"
+                    value={reps}
+                    onChangeText={handleOnChangeReps}
                 />
             </View>
-            
+
+            <TouchableOpacity style={styles.saveButton}>
+                <Text style={styles.saveText}>Salvar Exercício</Text>
+            </TouchableOpacity>
+
+
         </View>
     );
 };
@@ -254,7 +275,7 @@ const styles = StyleSheet.create({
         marginBottom: 20,
     },
 
-    weightInput: {
+    workoutInputs: {
         borderColor: '#352F44',
         flexDirection: 'row',
         marginHorizontal: 44,
@@ -267,8 +288,18 @@ const styles = StyleSheet.create({
         borderColor: '#352F44',
         padding: 1,
         margin: 2,
-        textAlign: 'center'
+        textAlign: 'center',
+        alignContent: 'center',
+        justifyContent: 'center'
     },
+
+    saveButton: {
+        backgroundColor: '#B9B4C7',
+        borderColor: '#352F44',
+        borderWidth: 1,
+        borderRadius: 6,
+        padding: 4
+    }
 });
 
 export default Treinos;

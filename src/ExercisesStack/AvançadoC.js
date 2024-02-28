@@ -1,19 +1,19 @@
 import { View, Text, StyleSheet, FlatList } from 'react-native';
 import React, { Component } from 'react';
 
-class IntermediarioA extends Component {
+class AvançadoA extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            IntermediarioA: [
-                { id: '1', treino: 'Supino Plano' },
-                { id: '2', treino: 'Supino Inclinado com Alteres' },
-                { id: '3', treino: 'Voador' },
-                { id: '4', treino: 'Desenvolvimento Costas Smith' },
-                { id: '5', treino: 'Elevação Lateral' },
-                { id: '6', treino: 'Tríceps Testa W' },
-                { id: '7', treino: 'Tríceps Puxador Corda' },
-                { id: '8', treino: 'Panturrilhas em Pé Livre' },
+          AvançadoA: [
+                { id: '1', treino: 'Agachamento' },
+                { id: '2', treino: 'Cadeira Extensora' },
+                { id: '3', treino: 'Hack Machine' },
+                { id: '4', treino: 'Mesa Flexora' },
+                { id: '5', treino: 'Cadeira Flexora' },
+                { id: '6', treino: 'Leg Pres Máquina' },
+                { id: '7', treino: 'Abdominal Declinado com Peso' },
+                { id: '8', treino: 'Abdominal Crunch' },
             ]
         }
     }
@@ -23,7 +23,7 @@ class IntermediarioA extends Component {
         return (
             <View style={styles.container}>
                 <FlatList
-                    data={this.state.IntermediarioA}
+                    data={this.state.AvançadoA}
                     keyExtractor={(item) => item.id}
                     renderItem={({ item }) => (
                         <View style={styles.item}>
@@ -65,4 +65,4 @@ const styles = StyleSheet.create({
     }
 });
 
-export default IntermediarioA;
+export default AvançadoA;

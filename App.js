@@ -23,6 +23,7 @@ import IntermediárioB from "./src/ExercisesStack/IntermediárioB";
 import IntermediárioC from "./src/ExercisesStack/IntermediárioC";
 import AvançadoA from "./src/ExercisesStack/AvançadoA";
 import AvançadoB from "./src/ExercisesStack/AvançadoB";
+import AvançadoC from "./src/ExercisesStack/AvançadoC";
 
 import Iniciante from "./src/ExercisesStack/Iniciante";
 import Intermediário from "./src/ExercisesStack/Intermediário";
@@ -68,7 +69,14 @@ const ExercisesStack = createStackNavigator();
 
 function ExercisesStackScreen() {
   return (
-    <ExercisesStack.Navigator>
+    <ExercisesStack.Navigator
+    screenOptions={{
+      headerShown: true, 
+      headerStyle: {
+        backgroundColor: 'transparent', 
+        elevation: 0, 
+        shadowOpacity: 0,
+        }}}>
       <ExercisesStack.Screen
         name="Exercícios"
         component={Exercises} />
@@ -93,6 +101,9 @@ function ExercisesStackScreen() {
       <ExercisesStack.Screen
         name="AvançadoB"
         component={AvançadoB} />
+      <ExercisesStack.Screen
+        name="AvançadoC"
+        component={AvançadoC} />
       <ExercisesStack.Screen
         name="Iniciante"
         component={Iniciante} />

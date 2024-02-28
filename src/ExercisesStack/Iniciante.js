@@ -11,7 +11,6 @@ const Iniciante = () => {
     const navigation = useNavigation()
     return (
         <View style={styles.container}>
-
             <TouchableOpacity
                 style={styles.infosText}
                 onPress={() => navigation.navigate("InicianteA")}
