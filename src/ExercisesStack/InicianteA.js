@@ -1,4 +1,9 @@
-import { View, Text, StyleSheet, FlatList } from 'react-native';
+import {
+    View,
+    Text,
+    StyleSheet,
+    FlatList,
+} from 'react-native';
 import React, { Component } from 'react';
 
 class InicianteA extends Component {
@@ -24,6 +29,7 @@ class InicianteA extends Component {
         return (
             <View style={styles.container}>
                 <FlatList
+                    style={styles.containerList}
                     data={this.state.InicianteA}
                     keyExtractor={(item) => item.id}
                     renderItem={({ item }) => (
@@ -32,6 +38,14 @@ class InicianteA extends Component {
                         </View>
                     )}
                 />
+                <View style={styles.containerButton}>
+                    <Text
+                        style={styles.startButton}
+                        onPress={() => navigation.navigate("Iniciante")
+                        }>
+                        Começar Treino
+                    </Text>
+                </View>
             </View>
         );
     }
@@ -63,7 +77,31 @@ const styles = StyleSheet.create({
     treino: {
         width: '100%',
         backgroundColor: 'red'
-    }
+    },
+
+    containerList: {
+        height: '90%'
+    },
+
+    containerButton: {
+        justifyContent: 'center',
+        alignItems: 'center',
+        height: 70
+    },
+
+    startButton: {
+        textAlign: 'center',        
+        color: '#5C5470',
+        fontWeight: 200,
+        backgroundColor: '#B9B4C7',
+        width: '40%',
+        height: '40%',
+        padding: 1,
+        borderRadius: 10,
+        fontSize: 14,
+    }, 
+
+    
 });
 
 export default InicianteA;

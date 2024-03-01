@@ -178,14 +178,14 @@ const Treinos = () => {
 
 const options = {
     container: {
-        backgroundColor: '#352F44',
+        backgroundColor: '#EA580C',
         padding: 5,
         borderRadius: 5,
         width: 142,
     },
     text: {
         fontSize: 30,
-        color: '#FFF',
+        color: '#fff7ed',
         marginLeft: 7,
     },
 };
@@ -193,7 +193,7 @@ const options = {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: '#FAF0E6',
+        backgroundColor: '#fff7ed',
         paddingHorizontal: 4,
         paddingVertical: 8,
         alignItems: 'center'
@@ -208,7 +208,7 @@ const styles = StyleSheet.create({
         width: 90,
         alignItems: 'center',
         justifyContent: 'center',
-        backgroundColor: '#B9B4C7',
+        backgroundColor: 'transparent',
         marginHorizontal: 5,
         borderRadius: 5,
         width: 82,
@@ -227,7 +227,8 @@ const styles = StyleSheet.create({
     },
 
     button: {
-        backgroundColor: '#B9B4C7',
+        color: '',
+        backgroundColor: 'transparent',
         borderRadius: 5,
         width: 82,
         height: 50,
@@ -236,7 +237,7 @@ const styles = StyleSheet.create({
     },
 
     buttonText: {
-        color: '#fff',
+        color: '#7c2d12',
         fontSize: 16,
     },
 

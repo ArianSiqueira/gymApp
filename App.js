@@ -29,6 +29,8 @@ import Iniciante from "./src/ExercisesStack/Iniciante";
 import Intermediário from "./src/ExercisesStack/Intermediário";
 import Avançado from "./src/ExercisesStack/Avançado";
 
+import Weight from "./src/ProfileStack/Weight";
+
 const TreinoStack = createStackNavigator();
 
 function TreinoStackScreen() {
@@ -45,9 +47,13 @@ function ProfileStackScreen() {
   return (
     <ProfileStack.Navigator>
       <ProfileStack.Screen
-        name="Perfil"
+        name="Informações"
         component={Profile}
       />
+      <ProfileStack.Screen 
+       name="Peso"
+       component={Weight} 
+       />
     </ProfileStack.Navigator>
   )
 }
