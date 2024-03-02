@@ -50,8 +50,11 @@ const Profile = () => {
       <Text style={styles.subTitle}>Pessoais: </Text>
 
       {/* NOME */}
-      <View>
-        <Button title="Adicionar Nome" onPress={() => setModalVisible(true)} />
+      <View style={styles.infoName}>
+        <Button
+          style={styles.addButton}
+          title="add"
+          onPress={() => setModalVisible(true)} />
 
         <Modal visible={modalVisible}>
           <View>
@@ -64,7 +67,10 @@ const Profile = () => {
           </View>
         </Modal>
 
-        <Text>Nome: {name}</Text>
+        <Text
+          style={styles.nameText}>
+          Nome: {name}
+        </Text>
       </View>
 
       <View style={styles.separatorList} />
@@ -105,64 +111,75 @@ const Profile = () => {
 export default Profile;
 
 const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        padding: 12,
-        backgroundColor: '#FAF0E6',
-    },
-    title: {
-        fontSize: 24,
-        fontWeight: 'bold',
-        color: '#352F44',
-        paddingVertical: 10,
-    },
+  container: {
+    flex: 1,
+    padding: 12,
+    backgroundColor: '#FAF0E6',
+  },
+  title: {
+    fontSize: 24,
+    fontWeight: 'bold',
+    color: '#352F44',
+    paddingVertical: 10,
+  },
 
-    subTitle: {
-        marginBottom: 10,
-        color: '#352F44',
-    },
+  subTitle: {
+    marginBottom: 10,
+    color: '#352F44',
+  },
 
-    separator: {
-        borderBottomColor: 'black',
-        borderBottomWidth: 1,
-        marginBottom: 10,
-        width: '100%',
-        alignItems: 'center'
-    },
+  separator: {
+    borderBottomColor: 'black',
+    borderBottomWidth: 1,
+    marginBottom: 10,
+    width: '100%',
+    alignItems: 'center'
+  },
 
-    separatorList: {
-        width: '100%',
-        borderBottomColor: 'black',
-        borderBottomWidth: 0.2
-    },
+  separatorList: {
+    width: '100%',
+    borderBottomColor: 'black',
+    borderBottomWidth: 0.2
+  },
 
-    info: {
-        width: 'auto',
-        height: 'auto',
-        padding: 10,
-        flexDirection: 'row',
-        textAlign: 'center'
-    },
+  info: {
+    width: 'auto',
+    height: 'auto',
+    padding: 10,
+    flexDirection: 'row',
+    textAlign: 'center'
+  },
 
-    infos: {
-        flexDirection: 'row',
-        width: '20%',
-        alignItems: 'center',
-        justifyContent: 'space-between'
-    },
+  infos: {
+    flexDirection: 'row',
+    width: '20%',
+    alignItems: 'center',
+    justifyContent: 'space-between'
+  },
 
-    list: {
-        width: '70%',
-        alignItems: 'flex-end'
-    },
+  list: {
+    width: '70%',
+    alignItems: 'flex-end'
+  },
 
-    infoText: {
-        lineHeight: 24,
-        marginLeft: 10,
-        justifyContent: 'flex-end'
-    },
+  infoText: {
+    lineHeight: 24,
+    marginLeft: 10,
+    justifyContent: 'flex-end'
+  },
 
-    infosText: {
-        color: '#5C5470',
-    }
+  infosText: {
+    color: '#5C5470',
+  },
+
+  infoName: {
+    flexDirection: 'row-reverse',
+    padding: 0,
+    margin: 0,
+    justifyContent: 'space-between'
+  },
+
+  nameText: {
+    
+  }
 });

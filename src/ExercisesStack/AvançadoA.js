@@ -39,16 +39,16 @@ class AvançadoA extends Component {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: '#FAF0E6',
+        backgroundColor: '#F6F5F5',
     },
 
     title: {
-        color: '#5C5470'
+        color: '#EA580C'
     },
 
     item: {
         borderBottomWidth: 1,
-        borderBottomColor: '#ccc',
+        borderBottomColor: '#FFE3CA',
         padding: 10,
         height: 40,
         margin: 10,

@@ -46,15 +46,15 @@ const Avançado = () => {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: '#FAF0E6',
+        backgroundColor: '#F6F5F5',
         padding: 4,
         justifyContent: 'flex-start',
         alignItems: 'center'
     },
 
     infosText: {
-        color: '#5C5470',
-        backgroundColor: '#B9B4C7',
+        
+        backgroundColor: '#FFE3CA',
         width: '60%',
         padding: 10,
         borderRadius: 10,
@@ -65,6 +65,7 @@ const styles = StyleSheet.create({
 
     infosButton: {
         textAlign: 'center',
+        color: '#EA580C',
     }
 });
 

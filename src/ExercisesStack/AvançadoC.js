@@ -1,11 +1,11 @@
 import { View, Text, StyleSheet, FlatList } from 'react-native';
 import React, { Component } from 'react';
 
-class AvançadoA extends Component {
+class AvançadoC extends Component {
     constructor(props) {
         super(props);
         this.state = {
-          AvançadoA: [
+            AvançadoC: [
                 { id: '1', treino: 'Agachamento' },
                 { id: '2', treino: 'Cadeira Extensora' },
                 { id: '3', treino: 'Hack Machine' },
@@ -23,7 +23,7 @@ class AvançadoA extends Component {
         return (
             <View style={styles.container}>
                 <FlatList
-                    data={this.state.AvançadoA}
+                    data={this.state.AvançadoC}
                     keyExtractor={(item) => item.id}
                     renderItem={({ item }) => (
                         <View style={styles.item}>
@@ -39,16 +39,16 @@ class AvançadoA extends Component {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: '#FAF0E6',
+        backgroundColor: '#F6F5F5',
     },
 
     title: {
-        color: '#5C5470'
+        color: '#EA580C'
     },
 
     item: {
         borderBottomWidth: 1,
-        borderBottomColor: '#ccc',
+        borderBottomColor: '#FFE3CA',
         padding: 10,
         height: 40,
         margin: 10,
@@ -65,4 +65,4 @@ const styles = StyleSheet.create({
     }
 });
 
-export default AvançadoA;
+export default AvançadoC;

@@ -63,7 +63,7 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         padding: 8,
-        backgroundColor: '#FAF0E6',
+        backgroundColor: '#F6F5F5',
     },
 
     button: {
@@ -72,8 +72,8 @@ const styles = StyleSheet.create({
     },
 
     infosText: {
-        color: '#5C5470',
-        backgroundColor: '#B9B4C7',
+        color: '#EA580C',
+        backgroundColor: '#FFE3CA',
         width: '80%',
         padding: 10,
         borderRadius: 10,

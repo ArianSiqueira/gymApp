@@ -4,6 +4,7 @@ import {
     StyleSheet,
     FlatList,
 } from 'react-native';
+
 import React, { Component } from 'react';
 
 class InicianteA extends Component {
@@ -26,6 +27,7 @@ class InicianteA extends Component {
 
 
     render() {
+        const { navigation } = this.props;
         return (
             <View style={styles.container}>
                 <FlatList
@@ -41,7 +43,7 @@ class InicianteA extends Component {
                 <View style={styles.containerButton}>
                     <Text
                         style={styles.startButton}
-                        onPress={() => navigation.navigate("Iniciante")
+                        onPress={() => navigation.navigate("Treinos")
                         }>
                         Começar Treino
                     </Text>
@@ -54,29 +56,20 @@ class InicianteA extends Component {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: '#FAF0E6',
+        backgroundColor: '#F6F5F5',
     },
 
     title: {
-        color: '#5C5470'
+        color: '#EA580C'
     },
 
     item: {
         borderBottomWidth: 1,
-        borderBottomColor: '#ccc',
+        borderBottomColor: '#FFE3CA',
         padding: 10,
         height: 40,
         margin: 10,
         backgroundColor: '#FFF8E3'
-    },
-
-    treinos: {
-        width: '60%',
-    },
-
-    treino: {
-        width: '100%',
-        backgroundColor: 'red'
     },
 
     containerList: {
@@ -86,22 +79,21 @@ const styles = StyleSheet.create({
     containerButton: {
         justifyContent: 'center',
         alignItems: 'center',
-        height: 70
+        height: 80
     },
 
     startButton: {
         textAlign: 'center',        
         color: '#5C5470',
-        fontWeight: 200,
         backgroundColor: '#B9B4C7',
         width: '40%',
         height: '40%',
-        padding: 1,
+        padding: 5,
         borderRadius: 10,
         fontSize: 14,
+        fontWeight: '800'
     }, 
-
-    
+   
 });
 
 export default InicianteA;
