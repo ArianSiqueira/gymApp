@@ -1,8 +1,3 @@
-import {
-  View,
-  Text
-} from "react-native"
-
 import 'react-native-gesture-handler';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { Ionicons } from '@expo/vector-icons';
@@ -13,7 +8,7 @@ import { createMaterialBottomTabNavigator } from 'react-native-paper/react-navig
 
 import Exercises from './src/BottomTab/Exercises';
 import Profile from './src/BottomTab/Profile';
-import Treinos from './src/BottomTab/Treinos';
+import Registros from './src/BottomTab/Registros';
 import Logs from './src/BottomTab/Logs';
 
 import InicianteA from "./src/ExercisesStack/InicianteA";
@@ -24,6 +19,7 @@ import IntermediárioC from "./src/ExercisesStack/IntermediárioC";
 import AvançadoA from "./src/ExercisesStack/AvançadoA";
 import AvançadoB from "./src/ExercisesStack/AvançadoB";
 import AvançadoC from "./src/ExercisesStack/AvançadoC";
+import Workout from './src/ExercisesStack/Workout';
 
 import Iniciante from "./src/ExercisesStack/Iniciante";
 import Intermediário from "./src/ExercisesStack/Intermediário";
@@ -31,13 +27,13 @@ import Avançado from "./src/ExercisesStack/Avançado";
 
 import Weight from "./src/ProfileStack/Weight";
 
-const TreinoStack = createStackNavigator();
+const RegistrosStack = createStackNavigator();
 
-function TreinoStackScreen() {
+function RegistrosStackScreen() {
   return (
-    <TreinoStack.Navigator>
-      <TreinoStack.Screen name="Treinos" component={Treinos} />
-    </TreinoStack.Navigator>
+    <RegistrosStack.Navigator>
+      <RegistrosStack.Screen name="Registros" component={Registros} />
+    </RegistrosStack.Navigator>
   )
 }
 
@@ -119,6 +115,9 @@ function ExercisesStackScreen() {
       <ExercisesStack.Screen
         name="Avançado"
         component={Avançado} />
+      <ExercisesStack.Screen
+        name="Workout"
+        component={Workout} />
     </ExercisesStack.Navigator>
   )
 }
@@ -132,13 +131,13 @@ function HomeTabsScreen() {
         tabBarIcon: ({ focused }) => {
           let iconName;
           switch (route.name) {
-            case "Treino":
+            case "Histórico":
               iconName = focused ? "barbell" : "barbell-outline";
               break;
             case "Exercícios":
               iconName = focused ? "book" : "book-outline";
               break;
-            case "Histórico":
+            case "Logs":
               iconName = focused ? "calendar" : "calendar-outline";
               break;
             case "Perfil":
@@ -155,8 +154,8 @@ function HomeTabsScreen() {
     >
 
       <Tab.Screen
-        name="Treino"
-        component={TreinoStackScreen}
+        name="Histórico"
+        component={RegistrosStackScreen}
       />
 
       <Tab.Screen
@@ -165,7 +164,7 @@ function HomeTabsScreen() {
       />
 
       <Tab.Screen
-        name="Histórico"
+        name="Logs"
         component={LogsStackScreen}
       />
 

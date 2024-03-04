@@ -19,10 +19,7 @@ const Exercises = () => {
             headerRight: () => (
                 <TouchableOpacity
                     style={{ marginRight: 16 }}
-                    onPress={() => {
-                        // Adicione a lógica desejada ao pressionar o botão
-                        console.log('Botão pressionado');
-                    }}
+                    onPress={() => navigation.navigate("")}
                 >
                     <Ionicons name="ellipsis-vertical" size={24} color="black" />
                 </TouchableOpacity>

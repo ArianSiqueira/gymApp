@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import {
     View,
     Text,
@@ -11,8 +11,11 @@ import {
 } from 'react-native';
 import { Timer } from 'react-native-stopwatch-timer';
 import { Ionicons } from '@expo/vector-icons';
+import { useRoute } from '@react-navigation/native';
 
-const Treinos = () => {
+
+
+const Workout = () => {
     const [timerStart, setTimerStart] = useState(false);
     const [timerReset, setTimerReset] = useState(false);
     const [modalVisible, setModalVisible] = useState(false);
@@ -21,6 +24,8 @@ const Treinos = () => {
     const [selectedOption, setSelectedOption] = useState('option1');
     const [weight, setWeight] = useState('');
     const [reps, setReps] = useState('');
+    const [externalFlatListData, setExternalFlatListData] = useState([]);
+
 
     const optionsLabel = [
         { label: 'Opção 1', value: 'option1' },
@@ -28,6 +33,15 @@ const Treinos = () => {
         { label: 'Opção 3', value: 'option3' },
     ];
 
+    const route = useRoute();
+
+    useEffect(() => {
+        // Obtém os dados da navegação
+        const { treinoData } = route.params;
+
+        // Atualiza o estado com os dados
+        setExternalFlatListData(treinoData);
+    }, [route]);
 
     const toggleTimer = () => {
         setTimerStart(!timerStart);
@@ -167,9 +181,25 @@ const Treinos = () => {
                 />
             </View>
 
-            <TouchableOpacity style={styles.saveButton}>
-                <Text style={styles.saveText}>Salvar Exercício</Text>
-            </TouchableOpacity>
+            {/* Lista de treinos */}
+            <View style={styles.externalFlatListView}>
+                <FlatList
+                    style={styles.workoutList}
+                    data={externalFlatListData}
+                    keyExtractor={(item) => item.id}
+                    renderItem={({ item }) => (
+                        <TouchableOpacity
+                            style={[
+                                styles.listItem,
+                                selectedTime && selectedTime.id === item.id && styles.selectedListItem,
+                            ]}
+                            onPress={() => handleListItemPress(item)}
+                        >
+                            <Text style={styles.listItemText}>{item.treino}</Text>
+                        </TouchableOpacity>
+                    )}
+                />
+            </View>
 
 
         </View>
@@ -294,13 +324,16 @@ const styles = StyleSheet.create({
         justifyContent: 'center'
     },
 
-    saveButton: {
-        backgroundColor: '#B9B4C7',
-        borderColor: '#352F44',
-        borderWidth: 1,
-        borderRadius: 6,
-        padding: 4
+    externalFlatListView: {
+        marginTop: 10
+    },
+
+    workoutList: {
+        margin: 0,
+        padding: 0, 
+        width: '100%'
     }
+
 });
 
-export default Treinos;
+export default Workout;

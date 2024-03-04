@@ -3,6 +3,7 @@ import {
     Text,
     StyleSheet,
     FlatList,
+    TouchableOpacity
 } from 'react-native';
 
 import React, { Component } from 'react';
@@ -25,9 +26,15 @@ class InicianteA extends Component {
         }
     }
 
+    startWorkout = () => {
+        const { navigation } = this.props;
+        navigation.navigate("Workout", {
+            treinoData: this.state.InicianteA
+        });
+    }
+
 
     render() {
-        const { navigation } = this.props;
         return (
             <View style={styles.container}>
                 <FlatList
@@ -40,14 +47,16 @@ class InicianteA extends Component {
                         </View>
                     )}
                 />
-                <View style={styles.containerButton}>
+                <TouchableOpacity
+                    style={styles.containerButton}
+                    onPress={this.startWorkout}
+                >
                     <Text
                         style={styles.startButton}
-                        onPress={() => navigation.navigate("Treinos")
-                        }>
+                    >
                         Começar Treino
                     </Text>
-                </View>
+                </TouchableOpacity>
             </View>
         );
     }
@@ -83,7 +92,7 @@ const styles = StyleSheet.create({
     },
 
     startButton: {
-        textAlign: 'center',        
+        textAlign: 'center',
         color: '#5C5470',
         backgroundColor: '#B9B4C7',
         width: '40%',
@@ -92,8 +101,8 @@ const styles = StyleSheet.create({
         borderRadius: 10,
         fontSize: 14,
         fontWeight: '800'
-    }, 
-   
+    },
+
 });
 
 export default InicianteA;

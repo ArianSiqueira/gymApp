@@ -1,11 +1,17 @@
-import { View, Text, StyleSheet, FlatList } from 'react-native';
+import {
+    View,
+    Text,
+    StyleSheet,
+    FlatList,
+    TouchableOpacity
+} from 'react-native';
 import React, { Component } from 'react';
 
 class AvançadoA extends Component {
     constructor(props) {
         super(props);
         this.state = {
-          AvançadoA: [
+            AvançadoA: [
                 { id: '1', treino: 'Supino Inclinado' },
                 { id: '2', treino: 'Voador' },
                 { id: '3', treino: 'Supino Máquina' },
@@ -18,6 +24,12 @@ class AvançadoA extends Component {
         }
     }
 
+    startWorkout = () => {
+        const { navigation } = this.props;
+        navigation.navigate("Workout", {
+            treinoData: this.state.AvançadoA
+        });
+    }
 
     render() {
         return (
@@ -31,6 +43,15 @@ class AvançadoA extends Component {
                         </View>
                     )}
                 />
+                <TouchableOpacity
+                    style={styles.containerButton} 
+                    onPress={this.startWorkout}>
+                    <Text
+                        style={styles.startButton}
+                    >
+                        Começar Treino
+                    </Text>
+                </TouchableOpacity>
             </View>
         );
     }
@@ -55,14 +76,28 @@ const styles = StyleSheet.create({
         backgroundColor: '#FFF8E3'
     },
 
-    treinos: {
-        width: '60%',
+    containerList: {
+        height: '90%'
     },
 
-    treino: {
-        width: '100%',
-        backgroundColor: 'red'
-    }
+    containerButton: {
+        justifyContent: 'center',
+        alignItems: 'center',
+        height: 80
+    },
+
+    startButton: {
+        textAlign: 'center',
+        color: '#5C5470',
+        backgroundColor: '#B9B4C7',
+        width: '40%',
+        height: '40%',
+        padding: 5,
+        borderRadius: 10,
+        fontSize: 14,
+        fontWeight: '800'
+    },
 });
+
 
 export default AvançadoA;

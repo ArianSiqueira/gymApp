@@ -1,11 +1,17 @@
-import { View, Text, StyleSheet, FlatList } from 'react-native';
+import {
+    View,
+    Text,
+    StyleSheet,
+    FlatList,
+    TouchableOpacity
+} from 'react-native';
 import React, { Component } from 'react';
 
 class IntermediarioC extends Component {
     constructor(props) {
         super(props);
         this.state = {
-          IntermediarioC: [
+            IntermediarioC: [
                 { id: '1', treino: 'Leg Press 45' },
                 { id: '2', treino: 'Afundo Smith' },
                 { id: '3', treino: 'Cadeira Extensora' },
@@ -17,9 +23,14 @@ class IntermediarioC extends Component {
         }
     }
 
+    startWorkout = () => {
+        const { navigation } = this.props;
+        navigation.navigate("Workout", {
+            treinoData: this.state.IntermediarioC
+        });
+    }
 
     render() {
-        const { navigation } = this.props;
         return (
             <View style={styles.container}>
                 <FlatList
@@ -31,14 +42,15 @@ class IntermediarioC extends Component {
                         </View>
                     )}
                 />
-                <View style={styles.containerButton}>
+                <TouchableOpacity
+                    style={styles.containerButton}
+                    onPress={this.startWorkout}>
                     <Text
                         style={styles.startButton}
-                        onPress={() => navigation.navigate("Treinos")
-                        }>
+                    >
                         Começar Treino
                     </Text>
-                </View>
+                </TouchableOpacity>
             </View>
         );
     }
@@ -74,7 +86,7 @@ const styles = StyleSheet.create({
     },
 
     startButton: {
-        textAlign: 'center',        
+        textAlign: 'center',
         color: '#5C5470',
         backgroundColor: '#B9B4C7',
         width: '40%',
@@ -83,7 +95,7 @@ const styles = StyleSheet.create({
         borderRadius: 10,
         fontSize: 14,
         fontWeight: '800'
-    }, 
+    },
 });
 
 export default IntermediarioC;
